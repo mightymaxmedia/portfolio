@@ -1,0 +1,291 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Giraffe</title>
+	
+<style type="text/css">
+	#maindiv{
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width:100%;
+	height:100%;
+	background-color:lightblue;
+	z-index:-1;
+	text-align:center;
+	overflow:hidden;
+	}
+	#animaldiv{
+	position:absolute;
+	top:0%;
+	left:0%;
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	z-index:10;
+	}
+	#ear{
+	position: absolute;
+	top: 13.25%;
+	left: 48.5%;
+	width: 4%;
+	height: 2%;
+	border-radius:1vh;
+	background-color: #EDB855;
+	background-image:linear-gradient(to right, rgba(0,0,0, 0), rgba(0,0,0,.5)), url("giraffe_skin.png");
+	tranform-origin:100% 50%;
+	transform:rotate(20deg);
+	}
+	#animalhead{
+	position: absolute;
+	top: 14%;
+	left: 52.5%;
+	width: 8%;
+	height: 5.5%;
+	background-color: #F7ED70;
+	background-image:linear-gradient(to right, rgba(0,0,0, 0), rgba(0,0,0,.5)), url("giraffe_skin.png");
+	border-radius:1vh;
+	}
+	#eyewhite{
+    position: absolute;
+    top: 13.5%;
+    left: 53.5%;
+    width: 2.5%;
+    height: 4.85%;
+    border-radius: 50%;
+	border:solid .3vh #333333;
+    background-color: #ffffff;transform-origin:50% 50%;
+	box-shadow:-2px 3px 8px #444444;
+	background-image:linear-gradient(to top, rgba(0,0,0,.7), rgba(0,0,0,0));
+	animation-name:eyeblink;
+	animation-duration:8.5s;
+	animation-iteration-count:infinite;
+	animation-timing-function:linear;
+	}
+	#eyepupil{
+    position: absolute;
+    top: 14.75%;
+    left: 54.50%;
+    width: 1.2%;
+    height: 2.2%;
+    border-radius: 50%;
+    background-color: #000000;
+	z-index:10;
+	animation-name:pupilblink;
+	animation-duration:8.5s;
+	animation-iteration-count:infinite;
+	animation-timing-function:linear;
+	}
+	#neck_0{
+	position: absolute;
+	top: 20%;
+	left: 53.5%;
+	width: 3.5%;
+	height: 7.5%;
+	background-image:linear-gradient(to right, rgba(0,0,0, 0), rgba(0,0,0,.5)), url("giraffe_skin.png");
+	}
+	#neck_1{
+	position: absolute;
+	top: 28%;
+	left: 53.5%;
+	width: 3.5%;
+	height: 7.5%;
+	background-image:linear-gradient(to right, rgba(0,0,0, 0), rgba(0,0,0,.5)), url("giraffe_skin.png");
+	}
+	#neck_2{
+	position: absolute;
+	top: 36%;
+	left: 53.5%;
+	width: 3.5%;
+	height: 7.5%;
+	background-color: #F5DF68;
+	background-image:linear-gradient(to right, rgba(0,0,0, 0), rgba(0,0,0,.5)), url("giraffe_skin.png");
+	}
+	#neck_3{
+	position: absolute;
+	top: 44%;
+	left: 53.5%;
+	width: 3.5%;
+	height: 7.5%;
+	background-color: #EDB855;
+	background-image:linear-gradient(to right, rgba(0,0,0, 0), rgba(0,0,0,.5)), url("giraffe_skin.png");
+	}
+	#neck_4{
+	position: absolute;
+	top: 52%;
+	left: 53.5%;
+	width: 3.5%;
+	height: 7.5%;
+	background-color: #F7F275;
+	background-image:linear-gradient(to right, rgba(0,0,0, 0), rgba(0,0,0,.5)), url("giraffe_skin.png");
+	}
+	#animalbody{
+	position: absolute;
+	top: 60%;
+	left: 40%;
+	width: 17.5%;
+	height: 10%;
+	background-color: #EDB855;
+	background-image:linear-gradient(to right, rgba(0,0,0, 0), rgba(0,0,0,.5)), url("giraffe_skin.png");
+	border-radius: 1vh;
+	}
+	#tail{
+	position: absolute;
+	top: 60.5%;
+	left: 34.75%;
+	width: 5%;
+	height:1.5%;
+	background-color: #F1F174;
+	background-image:url("giraffe_skin.png");
+	background-image:linear-gradient(to right, rgba(0,0,0, 0), rgba(0,0,0,.5)), url("giraffe_skin.png");
+	}	
+	#rightbackleg{
+	position: absolute;
+	top: 70.5%;
+	left: 41%;
+	width: 1.5%;
+	height: 18.5%;
+	background-color: #F3E064;
+	background-image:linear-gradient(to right, rgba(0,0,0, 0), rgba(0,0,0,.5)), url("giraffe_skin.png");
+	transform-origin:50% 0%;
+	animation-name:frontlegwalk;
+	animation-duration:4s;
+	animation-iteration-count:infinite;
+	animation-timing-function:linear;
+	}
+	#leftbackleg{
+	position: absolute;
+	top: 70.5%;
+	left: 41%;
+	width: 1.5%;
+	height: 18.5%;
+	background-color: #F3E064;
+	background-image:linear-gradient(to right, rgba(0,0,0, 0), rgba(0,0,0,.5)), url("giraffe_skin.png");
+	transform-origin:50% 0%;
+	animation-name:backlegwalk;
+	animation-duration:4s;
+	animation-iteration-count:infinite;
+	animation-timing-function:linear;
+	}
+	#rightfrontleg{
+	position: absolute;
+	top: 70.5%;
+	left: 55%;
+	width: 1.5%;
+	height: 18.5%;
+	background-color: #F3E064;
+	background-image:linear-gradient(to right, rgba(0,0,0, 0), rgba(0,0,0,.5)), url("giraffe_skin.png");
+	transform-origin:50% 0%;
+	animation-name:frontlegwalk;
+	animation-duration:4s;
+	animation-iteration-count:infinite;
+	animation-timing-function:linear;
+	}
+	#leftfrontleg{
+	position: absolute;
+	top: 70.5%;
+	left: 55%;
+	width: 1.5%;
+	height: 18.5%;
+	background-color: #F3E064;
+	background-image:linear-gradient(to right, rgba(0,0,0, 0), rgba(0,0,0,.5)), url("giraffe_skin.png");
+	transform-origin:50% 0%;
+	animation-name:backlegwalk;
+	animation-duration:4s;
+	animation-iteration-count:infinite;
+	animation-timing-function:linear;
+	}
+	/* ANIMATE COMPONENT */
+	@keyframes frontlegwalk{
+	0% {transform:rotate(0deg);}
+	25% {transform:rotate(25deg);}
+	50% {transform:rotate(0deg);}
+	75% {transform:rotate(-25deg);}
+	100% {transform:rotate(0deg);}
+	}
+	
+	@keyframes backlegwalk{  
+	0% {transform:rotate(0deg);}
+	25% {transform:rotate(-25deg);}
+	50% {transform:rotate(0deg);}
+	75% {transform:rotate(+25deg);}
+	100% {transform:rotate(0deg);}
+	}
+	
+	@keyframes eyeblink{
+	0% {max-height:4.85%; top:13.5%;}
+	75% {max-height:4.85%; top:13.5%;}
+	87.5% {max-height:.02%; top:15.25%;}
+	100% {max-height:4.85%; top:13.5%;}		
+	}
+	@keyframes pupilblink{
+	0% {max-height:2.2%; top:14.75%;}
+	75% {max-height:2.2%; top:14.75%;}
+	87.5% {max-height:.002%; top:15.75%;}
+	100% {max-height:2.2%; top:14.75%;}		
+	}
+	
+</style>	
+
+<script type="text/javascript">
+	
+function changeTextColor(){
+	
+	document.getElementById("headline").style.color = "red";
+}	
+	
+function moveAnimal(d){
+	var currentXpos = document.getElementById("animaldiv").offsetLeft;
+	if(d == "right"){
+		document.getElementById("animaldiv").style.left= currentXpos + 10 + "px";
+		
+	}
+	
+	
+}
+
+function simpleMove(){
+    document.getElementById("animaldiv").style.left= "500px";
+}
+	
+</script>
+	
+	
+</head>
+
+<body>
+	<center><h1 id="headline">GIRAFFE</h1></center>
+	<input type="button" value="Change Color" onclick="changeTextColor();">
+	<br><br>
+	<input type="button" value="Right" onclick="javascript:moveAnimal('right');">
+    <br><br>
+    <input type="button" value="Move Right" onclick="javascript:simpleMove();">
+	
+<div id="maindiv">	
+
+<div id="animaldiv">
+<div id="ear"></div>
+<div id="animalhead"></div>
+<div id="eyewhite"></div>
+<div id="eyepupil"></div>
+<div id="neck_0"></div>	
+<div id="neck_1"></div>
+<div id="neck_2"></div>
+<div id="neck_3"></div>
+<div id="neck_4"></div>
+<div id="animalbody"></div>
+<div id="tail"></div>
+<div id="rightbackleg" style=""></div>
+<div id="rightfrontleg"></div>
+<div id="leftbackleg"></div>
+<div id="leftfrontleg"></div>
+	
+</div>
+
+
+
+</div>
+	
+</body>
+</html>
